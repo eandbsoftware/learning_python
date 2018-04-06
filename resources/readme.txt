@@ -1,0 +1,1 @@
+fast neat average friendly good good
