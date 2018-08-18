@@ -1,0 +1,1 @@
+print('Intercepted by __init__ bitches!')

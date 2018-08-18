@@ -1,8 +1,12 @@
 # 1. You CAN import just a directory;
-# 2. but by default, you don't get access to sub-modules in that directory (i.e., nested directories or module files), only variables assigned in it's __init__.py file
+# 2. but by default, you don't get access to sub-modules in that directory (i.e., nested directories or module files), only variables assigned in it's __init__.py file!
+# 2.5 Importing a nested package directory means that higher-level directorys know about nested directories
 # 3. import will always yield a module
 # 4. from...import MAY yield a module, or NOT;
 # 5. and you won't know from just looking at the import statement
+# 6. Each directory name in the path becomes a variable assigned to a module object
+#    whose namespace is initialized by all the assignments in that directory's __init__.py file.
+
 
 import dir1.dir2.mod
 print()
@@ -11,7 +15,7 @@ print()
 #import dir1.dir2.mod
 
 '''
-# Use reload to reload
+# Reload accepts a dotted path name
 from imp import reload
 reload(dir1)
 print()
