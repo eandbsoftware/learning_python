@@ -23,14 +23,6 @@ class Commuter1:
         print('radd', left, self.val)
         return left + self.val
 
-x = Commuter1(88)
-y = Commuter1(99)
-
-print(x + 1)
-print(1 + y)
-print(x + y)
-print()
-
 # calling __add__ directly
 class Commuter2:
     def __init__(self, val):
@@ -40,14 +32,6 @@ class Commuter2:
         return self.val + other
     def __radd__(self, other):
         return self.__add__(other)
-
-x = Commuter2(88)
-y = Commuter2(99)
-
-print(x + 1)
-print(1 + y)
-print(x + y)
-print()
 
 # swapping order and re-adding to trigger __add__indirectly
 class Commuter3:
@@ -59,15 +43,10 @@ class Commuter3:
     def __radd__(self, other):
         return self + other
 
-x = Commuter3(88)
-y = Commuter3(99)
-
-print(x + 1)
 # 1.__add__(y) => y.__radd__(1) => y.__add__(1)
-print(1 + y)
+#print(1 + y)
 # x.__add__(y) => 88.__add__(y) => y.__radd__(88) => y.__add__(88)
-print(x + y)
-print()
+#print(x + y)
 
 # assigning __radd__ to be an alias for __add__
 class Commuter4:
@@ -77,13 +56,13 @@ class Commuter4:
         print('add', self.val, other)
         return self.val + other
     __radd__ = __add__
-    
-x = Commuter4(88)
-y = Commuter4(99)
 
-print(x + 1)
-print(1 + y)
-print(x + y)
-print()
-
-# Propagating class type
+if __name__=='__main__':
+    for klass in (Commuter1, Commuter2, Commuter3, Commuter3):
+        print('-'*20, klass.__name__, '-'*20 )
+        x = klass(88)
+        y = klass(99)
+        print(x + 1)
+        print(1 + y)
+        print(x + y)
+        
