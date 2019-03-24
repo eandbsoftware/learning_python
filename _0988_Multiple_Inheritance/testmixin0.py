@@ -1,4 +1,4 @@
-from listinstance import ListInstance
+from _0988_Multiple_Inheritance.listinstance import ListInstance
 
 class Super:
     def __init__(self):
